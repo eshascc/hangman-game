@@ -45,6 +45,8 @@ chossenletterandspace.forEach(letter=>{
     letterguss.appendChild(span)
 })
 let gussspans =document.querySelectorAll('.letters-guss span')
+let wrongAttempts = 0
+let thedraw = document.querySelector('.hangman-draw')
 document.addEventListener('click',(e)=>{
     let status = false
 if(e.target.className === 'letter-box'){
@@ -64,6 +66,10 @@ if(e.target.className === 'letter-box'){
         })
        }
     })
+    if(status !== true){
+        wrongAttempts++
+        thedraw.classList.add(`wrong-${wrongAttempts}`)
+    }
 console.log(status)
 }
 })
